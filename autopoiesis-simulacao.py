@@ -9,7 +9,7 @@ Author: Janderson Gomes
 Date: October, 2024
 License: MIT License
 
-Copyright (c) 2023 Janderson Gomes
+Copyright (c) 2024 Janderson Gomes
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

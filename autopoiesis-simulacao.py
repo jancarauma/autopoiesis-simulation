@@ -255,7 +255,7 @@ class AutopoiesisSimulation:
         for particle in list(self.particles):
             if particle.type == ParticleType.LINK:
                 particle.age += 1
-                if particle.age > 500 and random.random() < 0.01:
+                if particle.age > 2*500 and random.random() < 0.01:
                     # Remover ligações
                     for connected in particle.connections:
                         connected.connections.remove(particle)
@@ -305,8 +305,15 @@ class AutopoiesisSimulation:
                     vertices.append((int(x), int(y)))
                 pygame.draw.polygon(self.screen, COLORS['catalyst'], vertices)
             elif particle.type == ParticleType.LINK:
-                pygame.draw.circle(self.screen, COLORS['link'], 
-                                (int(pos.x), int(pos.y)), particle.radius)
+                #pygame.draw.circle(self.screen, COLORS['link'], 
+                #                (int(pos.x), int(pos.y)), particle.radius)
+                rect = pygame.Rect(
+                                int(pos.x - particle.radius),
+                                int(pos.y - particle.radius),
+                                particle.radius * 2,
+                                particle.radius * 2
+                )
+                pygame.draw.rect(self.screen, COLORS['link'], rect)
     
     def draw_bonds(self):
         for bond in self.bonds:
